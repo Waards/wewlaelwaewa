@@ -1,0 +1,6 @@
+{
+  "name": "Kenaz Jezer Portfolio",
+  "description": "High-end single-page dark portfolio landing page for Kenaz Jezer built using React, Vite, Tailwind CSS, GSAP, Framer Motion, and HLS video backgrounds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
