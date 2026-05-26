@@ -145,7 +145,7 @@ export const STATS: StatItem[] = [
     description: 'Full-stack development and API integration, working remotely with clients across multiple industries.'
   },
   {
-    number: '30+',
+    number: '80+',
     label: 'Projects Done',
     description: 'From full-stack web apps and CRM systems to AI integrations and interactive UI components.'
   },

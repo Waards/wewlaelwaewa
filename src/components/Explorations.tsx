@@ -94,6 +94,19 @@ export default function Explorations() {
       ref={sectionRef}
       className="relative min-h-[250vh] md:min-h-[300vh] bg-bg overflow-clip select-none"
     >
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+        <video
+          src="/src/assets/images/vistualply.mp4"
+          muted
+          loop
+          playsInline
+          autoPlay
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2 brightness-[0.2]"
+        />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+      </div>
+
       {/* Layer 1: Pinned Center (z-10) */}
       <div
         ref={contentRef}

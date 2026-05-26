@@ -1,12 +1,23 @@
-import { ArrowUpRight, Sparkle, Bot, Brain, Cpu, Cloud, Code2, Zap, Database, Globe, GitBranch, Workflow, Server, Terminal } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft, ArrowUpRight, Sparkle, Bot, Brain, Cpu, Cloud, Code2, Zap, Database, Globe, GitBranch, Workflow, Server, Terminal } from 'lucide-react';
 
 const TOOLS_ROW_1 = [Bot, Brain, Cpu, Cloud, Code2, Zap, Database, Globe, GitBranch, Workflow, Server, Terminal];
 const TOOLS_ROW_2 = [Cloud, Zap, Brain, Bot, Server, Database, Code2, Globe, Workflow, Cpu, Terminal, GitBranch];
 
 export default function AiIntegration() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans antialiased overflow-x-hidden">
       <div className="px-4 sm:px-6 md:px-10 lg:px-14 py-6 sm:py-8 md:py-10 lg:min-h-screen flex flex-col">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate('/')}
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-white/50 hover:text-white/90 transition-colors mb-6 cursor-pointer"
+        >
+          <ArrowLeft size={14} strokeWidth={1.5} /> Back to Portfolio
+        </button>
+
         {/* Header Row */}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6 mb-10 md:mb-14 lg:mb-18">
           <div className="max-w-3xl">
@@ -79,7 +90,7 @@ export default function AiIntegration() {
             {/* Metric card */}
             <div className="relative rounded-2xl bg-black overflow-hidden min-h-[240px] flex flex-col items-center justify-center">
               <video
-                src="/src/assets/images/herobg.mp4"
+                src="/src/assets/images/apicalls.mp4"
                 autoPlay loop muted playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -99,7 +110,7 @@ export default function AiIntegration() {
             {/* Daily AI Tools card */}
             <div className="relative rounded-2xl bg-black overflow-hidden min-h-[280px] flex flex-col">
               <video
-                src="/src/assets/images/herobg.mp4"
+                src="/src/assets/images/ai%20eco.mp4"
                 autoPlay loop muted playsInline
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -134,18 +145,18 @@ export default function AiIntegration() {
                   <Sparkle size={12} strokeWidth={1.5} /> GET IN TOUCH <Sparkle size={12} strokeWidth={1.5} />
                 </span>
                 <a
-                  href="mailto:hi@aihub.com"
+                  href="mailto:sjosafatvillegas@gmail.com"
                   className="h-9 w-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
                   <ArrowUpRight size={16} strokeWidth={1.5} className="text-white/80" />
                 </a>
               </div>
               <div className="mt-auto space-y-1.5">
-                <a href="mailto:hi@aihub.com" className="block text-sm text-white/80 hover:text-white transition-colors">
-                  hi@aihub.com
+                <a href="mailto:sjosafatvillegas@gmail.com" className="block text-sm text-white/80 hover:text-white transition-colors">
+                  sjosafatvillegas@gmail.com
                 </a>
-                <a href="tel:+442078163" className="block text-sm text-white/60 hover:text-white/80 transition-colors">
-                  +44 20 781 63
+                <a href="tel:+639380438007" className="block text-sm text-white/60 hover:text-white/80 transition-colors">
+                  +63 938 043 800 7
                 </a>
               </div>
             </div>

@@ -5,42 +5,10 @@
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import Hls from 'hls.js';
 
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  // Initialize HLS video
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const streamUrl = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
-
-    if (Hls.isSupported()) {
-      const hls = new Hls({
-        maxMaxBufferLength: 10,
-        enableWorker: true
-      });
-      hls.loadSource(streamUrl);
-      hls.attachMedia(video);
-
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play().catch(err => console.log("HLS video autoplay blocked:", err));
-      });
-
-      return () => {
-        hls.destroy();
-      };
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // Native Safari support
-      video.src = streamUrl;
-      video.addEventListener('loadedmetadata', () => {
-        video.play().catch(err => console.log("Native video autoplay blocked:", err));
-      });
-    }
-  }, []);
 
   // GSAP Entrance
   useEffect(() => {
@@ -79,6 +47,7 @@ export default function Hero() {
       <div className="absolute inset-x-0 inset-y-0 w-full h-full overflow-hidden">
         <video
           ref={videoRef}
+          src="/src/assets/images/herobg.mp4"
           muted
           loop
           playsInline

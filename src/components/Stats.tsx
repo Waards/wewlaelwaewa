@@ -8,8 +8,21 @@ import { STATS } from '../data';
 
 export default function Stats() {
   return (
-    <section id="stats" className="bg-bg py-24 md:py-32 border-t border-stroke select-none">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+    <section id="stats" className="relative bg-bg py-24 md:py-32 border-t border-stroke select-none overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <video
+          src="/src/assets/images/6+.mp4"
+          muted
+          loop
+          playsInline
+          autoPlay
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2 brightness-[0.3]"
+        />
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-[1px]" />
+      </div>
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         
         {/* Responsive Grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16">

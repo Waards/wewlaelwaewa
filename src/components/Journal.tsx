@@ -16,8 +16,21 @@ export default function Journal() {
   };
 
   return (
-    <section id="journal" className="bg-bg py-20 md:py-28 text-text-primary">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+    <section id="journal" className="relative bg-bg py-20 md:py-28 text-text-primary overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <video
+          src="/src/assets/images/recentbg.mp4"
+          muted
+          loop
+          playsInline
+          autoPlay
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2 brightness-[0.2]"
+        />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
+      </div>
+
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
 
         {/* Header Section */}
         <motion.div

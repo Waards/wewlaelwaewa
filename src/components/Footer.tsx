@@ -5,42 +5,11 @@
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import Hls from 'hls.js';
 import { Mail, ArrowUpRight, Github, Linkedin, Twitter } from 'lucide-react';
 
 export default function Footer() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const marqueeRef = useRef<HTMLDivElement | null>(null);
-
-  // Initialize mirrored HLS video for Footer
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const streamUrl = 'https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8';
-
-    if (Hls.isSupported()) {
-      const hls = new Hls({
-        maxMaxBufferLength: 10,
-        enableWorker: true
-      });
-      hls.loadSource(streamUrl);
-      hls.attachMedia(video);
-
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play().catch(err => console.log("HLS footer video autoplay blocked:", err));
-      });
-
-      return () => {
-        hls.destroy();
-      };
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = streamUrl;
-      video.addEventListener('loadedmetadata', () => {
-        video.play().catch(err => console.log("Native video autoplay blocked:", err));
-      });
-    }
-  }, []);
 
   // Marquee GSAP Infinite horizontal scroll
   useEffect(() => {
@@ -75,14 +44,15 @@ export default function Footer() {
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
         <video
           ref={videoRef}
+          src="/src/assets/images/head.mp4"
           muted
           loop
           playsInline
           autoPlay
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2 brightness-[0.2] scale-y-[-1]"
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2 brightness-[0.6]"
         />
         {/* Shadow & Contrast Mask */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
         {/* Top Fade in from preceding sections */}
         <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-bg to-transparent" />
       </div>
