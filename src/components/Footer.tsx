@@ -6,7 +6,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Hls from 'hls.js';
-import { Mail, ArrowUpRight, Github, Linkedin, Twitter, Dribbble } from 'lucide-react';
+import { Mail, ArrowUpRight, Github, Linkedin, Twitter } from 'lucide-react';
 
 export default function Footer() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -114,7 +114,7 @@ export default function Footer() {
           {/* Mailto button with outline transition / glow */}
           <div className="flex justify-center">
             <a
-              href="mailto:hello@michaelsmith.com"
+              href="mailto:Sjosafatvillegas@gmail.com"
               className="group relative inline-flex items-center gap-3 text-sm md:text-base font-semibold text-text-primary bg-surface/80 border border-stroke rounded-full px-8 py-4 transition-all duration-300 hover:scale-[1.03] hover:border-transparent cursor-pointer"
             >
               {/* Highlight background on hover */}
@@ -123,7 +123,7 @@ export default function Footer() {
               <span className="absolute inset-0 rounded-full bg-surface group-hover:bg-bg transition-colors duration-300 -z-10" />
 
               <Mail size={16} className="text-[#89AACC] group-hover:scale-110 transition-transform duration-300" />
-              <span>hello@michaelsmith.com</span>
+              <span>Sjosafatvillegas@gmail.com</span>
               <ArrowUpRight size={16} className="text-muted group-hover:text-text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
             </a>
           </div>
@@ -146,7 +146,7 @@ export default function Footer() {
           {/* Social Icons list */}
           <div className="flex items-center gap-5">
             <a
-              href="https://twitter.com"
+              href="https://twitter.com/wardseverything"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200"
@@ -155,7 +155,7 @@ export default function Footer() {
               <Twitter size={15} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/wards"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200"
@@ -164,16 +164,7 @@ export default function Footer() {
               <Linkedin size={15} />
             </a>
             <a
-              href="https://dribbble.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200"
-              aria-label="Dribbble Profile"
-            >
-              <Dribbble size={15} />
-            </a>
-            <a
-              href="https://github.com"
+              href="https://github.com/Wards"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200"
@@ -185,7 +176,7 @@ export default function Footer() {
 
           {/* Copyright/Back to top */}
           <div className="text-right flex flex-col items-center sm:items-end gap-1 font-mono text-[10px] sm:text-xs text-muted select-none">
-            <span>© 2026 Kenaz Jezer. All rights reserved.</span>
+            <span>© 2026 Wards (Ken). All rights reserved.</span>
             <button
               id="back-to-top"
               onClick={handleScrollToTop}

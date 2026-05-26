@@ -110,7 +110,7 @@ export default function Journal() {
                 {/* Right Metadata */}
                 <div className="flex md:flex-col items-center md:items-end justify-between md:justify-center border-t border-stroke/30 pt-3 md:pt-0 md:border-none shrink-0 gap-1.5 font-mono select-none">
                   <span className="text-[9px] text-[#4E85BF] font-semibold tracking-widest uppercase flex items-center gap-1">
-                    <BookOpen size={10} /> {entry.readTime}
+                    {entry.readTime && <><BookOpen size={10} /> {entry.readTime}</>}
                   </span>
                   
                   {/* Custom Arrow on Hover */}

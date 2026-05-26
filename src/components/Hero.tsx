@@ -96,23 +96,23 @@ export default function Hero() {
         {/* Eyebrow */}
         <div className="overflow-hidden mb-6">
           <p className="blur-in text-xs text-muted uppercase tracking-[0.34em] font-semibold">
-            COLLECTION '26
+            SILANG, CAVITE • PH
           </p>
         </div>
 
         {/* Name */}
         <h1 className="name-reveal text-6xl md:text-8xl lg:text-[110px] font-display italic leading-[0.85] tracking-tight text-text-primary mb-6">
-          Kenaz Jezer
+          Wards <span className="not-italic text-[#89AACC]">(Ken)</span>
         </h1>
 
         {/* Role line */}
         <p className="blur-in text-lg md:text-2xl text-text-primary/95 font-body tracking-normal mb-6">
-          full stack developer and <span className="font-display italic text-[#89AACC]">web designer</span>
+          full stack developer and <span className="font-display italic text-[#89AACC]">automation enthusiast</span>
         </p>
 
         {/* Description */}
         <p className="blur-in text-sm md:text-base text-muted max-w-md mx-auto mb-12 leading-relaxed">
-          Crafting seamless digital experiences at the intersection of design and technology.
+          Building intelligent systems at the intersection of web development, AI integration, and creative UI.
         </p>
 
         {/* CTA Buttons */}

@@ -3,11 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../data';
 import { ArrowRight } from 'lucide-react';
 
 export default function SelectedWorks() {
+  const navigate = useNavigate();
+
   const handleScrollToContact = () => {
     const contact = document.getElementById('contact');
     if (contact) {
@@ -72,22 +75,42 @@ export default function SelectedWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+              onClick={() => {
+                if (project.link && project.link !== '#') {
+                  if (project.link.startsWith('/')) {
+                    navigate(project.link);
+                  } else {
+                    window.open(project.link, '_blank', 'noopener,noreferrer');
+                  }
+                }
+              }}
               className={`${project.colSpan} group relative bg-surface border border-stroke rounded-3xl overflow-hidden aspect-[4/3] md:aspect-auto md:h-[480px] flex flex-col justify-end p-6 md:p-8 cursor-pointer shadow-md select-none`}
             >
               {/* Card visual background */}
               <div className="absolute inset-0 overflow-hidden z-0">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+                {project.image.endsWith('.mp4') ? (
+                  <video
+                    src={project.image}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                )}
                 
                 {/* Halftone graphic layer overlay */}
                 <div className="absolute inset-0 halftone-overlay opacity-25 mix-blend-multiply pointer-events-none" />
 
                 {/* Subtle gradient shadow layer inside card */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent pointer-events-none" />
               </div>
 
               {/* Card Contents */}

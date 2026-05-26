@@ -60,7 +60,7 @@ export default function Navbar() {
           <span className="absolute inset-0 accent-gradient transition-transform duration-500 ease-in-out group-hover:rotate-180" />
           <span className="relative w-full h-full rounded-full bg-bg flex items-center justify-center">
             <span className="font-display italic text-[13px] text-text-primary font-bold tracking-tight">
-              JA
+              WK
             </span>
           </span>
         </button>

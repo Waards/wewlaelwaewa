@@ -4,6 +4,7 @@
  */
 
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
@@ -13,12 +14,13 @@ import Journal from './components/Journal';
 import Explorations from './components/Explorations';
 import Stats from './components/Stats';
 import Footer from './components/Footer';
+import AiIntegration from './pages/AiIntegration';
 
-export default function App() {
+function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div id="portfolio-app" className="bg-bg text-text-primary min-h-screen relative overflow-x-hidden font-body selection:bg-white/10 selection:text-white">
+    <>
       {/* Loading sequence overlay */}
       <AnimatePresence mode="wait">
         {isLoading && (
@@ -53,6 +55,19 @@ export default function App() {
           <Footer />
         </div>
       )}
-    </div>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <div id="portfolio-app" className="bg-bg text-text-primary min-h-screen relative overflow-x-hidden font-body selection:bg-white/10 selection:text-white">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/ai-integration" element={<AiIntegration />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }

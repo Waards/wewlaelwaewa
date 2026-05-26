@@ -7,46 +7,46 @@ import { Project, JournalEntry, ExplorationItem, StatItem } from './types';
 
 export const PROJECTS: Project[] = [
   {
-    id: 'automotive-motion',
-    title: 'Automotive Motion',
-    subtitle: 'Crafting premium interactive motion states for electric hypercars.',
-    category: 'Motion Design',
-    image: '/src/assets/images/automotive_motion_1779695330695.png',
-    tags: ['WebGL', 'Interaction', 'UI/UX'],
-    link: '#',
+    id: 'cianan',
+    title: 'CIANAN',
+    subtitle: 'Full-stack multi-role web application with Stock Management and HR System modules.',
+    category: 'Full-Stack Web App',
+    image: '/src/assets/images/1.gif',
+    tags: ['PHP/PDO', 'MySQL', 'Chart.js', 'Session Auth'],
+    link: 'https://github.com/Waards/management',
     colSpan: 'md:col-span-7',
     color: 'from-blue-900/40 to-slate-900/20'
   },
   {
-    id: 'urban-architecture',
-    title: 'Urban Architecture',
-    subtitle: 'Brutalist concrete architecture archives and exploration portal.',
-    category: 'Spatial Platform',
-    image: '/src/assets/images/urban_architecture_1779695347974.png',
-    tags: ['Nuances', 'Curation', 'React'],
-    link: '#',
+    id: 'ghl-automation',
+    title: 'GHL Automation Suite',
+    subtitle: 'Sales funnel design, workflow automation, and CRM integration pipelines for client businesses.',
+    category: 'CRM & Automation',
+    image: '/src/assets/images/1.jpg',
+    tags: ['GoHighLevel', 'Funnels', 'Workflows'],
+    link: 'https://app.ignitesystems.io/v2/preview/v002f1dTimLQJu1xgBeF?notrack=true',
     colSpan: 'md:col-span-5',
     color: 'from-stone-900/40 to-zinc-950/20'
   },
   {
-    id: 'human-perspective',
-    title: 'Human Perspective',
-    subtitle: 'Immersive light structures studying human shadow relationships.',
-    category: 'Interactive Installation',
-    image: '/src/assets/images/human_perspective_1779695366333.png',
-    tags: ['Installations', 'Concept', 'Creative Coding'],
-    link: '#',
+    id: 'interactive-ui',
+    title: 'Interactive UI Widgets',
+    subtitle: 'Crafting responsive, fluid interfaces with GSAP timelines and Framer Motion spring animations for immersive user experiences.',
+    category: 'Creative UI',
+    image: '/src/assets/images/ui.mp4',
+    tags: ['CSS 3D', 'Pixel Art', 'GSAP'],
+    link: 'https://wardsportv3.vercel.app/',
     colSpan: 'md:col-span-5',
     color: 'from-amber-950/20 to-stone-900/40'
   },
   {
-    id: 'brand-identity',
-    title: 'Brand Identity',
-    subtitle: 'Sophisticated typography and custom metal debossed stationery style systems.',
-    category: 'Direction & Brand',
-    image: '/src/assets/images/brand_identity_1779695383721.png',
-    tags: ['Typography', 'Minimalism', 'Identity'],
-    link: '#',
+    id: 'ai-integration',
+    title: 'AI Integration Hub',
+    subtitle: 'Multi-model AI routing via OpenRouter, ultra-fast inference with Groq, and n8n workflow automation.',
+    category: 'AI & Automation',
+    image: '/src/assets/images/2.jpg',
+    tags: ['OpenRouter', 'Groq', 'n8n', 'REST APIs'],
+    link: '/ai-integration',
     colSpan: 'md:col-span-7',
     color: 'from-zinc-900/40 to-slate-950/20'
   }
@@ -55,39 +55,35 @@ export const PROJECTS: Project[] = [
 export const JOURNAL_ENTRIES: JournalEntry[] = [
   {
     id: 'j-1',
-    title: 'Design Nuances: The Magic of micro-interactions',
-    excerpt: 'An investigation into how standard UI gestures transform into elevated, satisfying human conversations through physics-based easing.',
+    title: 'Building CIANAN: Lessons from a Multi-Role System',
+    excerpt: 'How I architected a stock management and HR system with role-based dashboards, session auth, and weighted attendance calculations.',
     date: 'May 18, 2026',
-    readTime: '4 min read',
-    image: 'https://picsum.photos/seed/journal_ux/300/300',
-    tags: ['Interaction', 'Essays']
+    image: 'https://picsum.photos/seed/cianan_dev/300/300',
+    tags: ['Development', 'Architecture']
   },
   {
     id: 'j-2',
-    title: 'The Brutalist concrete aesthetic in digital spaces',
-    excerpt: 'Why raw typography, immense margins, and stark high-contrast layouts are dominating high-end, editorial digital interfaces today.',
+    title: 'Automating Workflows with n8n and GoHighLevel',
+    excerpt: 'A deep dive into building automated pipelines for lead nurturing, follow-ups, and CRM synchronization using no-code automation tools.',
     date: 'April 22, 2026',
-    readTime: '6 min read',
-    image: 'https://picsum.photos/seed/journal_typography/300/300',
-    tags: ['Architecture', 'Visual Style']
+    image: 'https://picsum.photos/seed/automation_flow/300/300',
+    tags: ['Automation', 'CRM']
   },
-  {
+    {
     id: 'j-3',
-    title: 'The decline of the standard grid and return of fluidity',
-    excerpt: 'How viewport triggers, parallax, and custom cursor guides are breaking traditional column blocks for the better.',
+    title: 'Enterprise Dashboard Architecture: Patterns & Best Practices',
+    excerpt: 'Designing scalable, maintainable dashboard systems with modular state management, role-based views, and real-time data pipelines.',
     date: 'Mar 11, 2026',
-    readTime: '5 min read',
-    image: 'https://picsum.photos/seed/journal_interactive/300/300',
-    tags: ['Layout', 'Code']
+    image: 'https://picsum.photos/seed/enterprise_dash/300/300',
+    tags: ['Architecture', 'Design Patterns']
   },
   {
     id: 'j-4',
-    title: 'Designing with darkness: HSL values for deep comfort',
-    excerpt: 'How to manage ultra-dark UI, screen glare, and premium shadows to prevent sight strain and foster visual immersion.',
+    title: 'AI Integration Patterns: OpenRouter & Groq',
+    excerpt: 'Comparing multi-model routing vs ultra-fast inference — and how I use both patterns to build intelligent application features.',
     date: 'Feb 05, 2026',
-    readTime: '3 min read',
-    image: 'https://picsum.photos/seed/journal_psychology/300/300',
-    tags: ['Colours', 'Ergonomics']
+    image: 'https://picsum.photos/seed/ai_patterns/300/300',
+    tags: ['AI', 'APIs']
   }
 ];
 
@@ -144,18 +140,18 @@ export const EXPLORATIONS: ExplorationItem[] = [
 
 export const STATS: StatItem[] = [
   {
-    number: '20+',
+    number: '6+',
     label: 'Years Experience',
-    description: 'Working across global agencies, crafting bespoke visual codes for elite brands.'
+    description: 'Full-stack development and API integration, working remotely with clients across multiple industries.'
   },
   {
-    number: '95+',
+    number: '30+',
     label: 'Projects Done',
-    description: 'Bespoke design, performance-focused code, full-scale digital systems.'
+    description: 'From full-stack web apps and CRM systems to AI integrations and interactive UI components.'
   },
   {
-    number: '200%',
-    label: 'Satisfied Clients',
-    description: 'Delivering triple-distilled layouts, visual pacing, and extreme engineering craftsmanship.'
+    number: '99%',
+    label: 'Client Satisfaction',
+    description: 'Focused on clean code, seamless user experiences, and reliable automation solutions.'
   }
 ];
