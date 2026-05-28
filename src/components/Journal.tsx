@@ -3,16 +3,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { JOURNAL_ENTRIES } from '../data';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ChevronDown, BookOpen } from 'lucide-react';
 
 export default function Journal() {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
   const handleScrollToContact = () => {
     const contact = document.getElementById('contact');
     if (contact) {
       contact.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const toggleEntry = (id: string) => {
+    setExpandedId((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -71,73 +78,150 @@ export default function Journal() {
             <span className="absolute inset-0 rounded-full bg-surface group-hover:bg-bg transition-colors duration-300 -z-10" />
 
             <span className="flex items-center gap-2">
-              View all ideas <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform duration-300" />
+              View all ideas <BookOpen size={14} className="transform group-hover:translate-x-1 transition-transform duration-300" />
             </span>
           </button>
         </motion.div>
 
-        {/* Horizontal Pills list */}
+        {/* Accordion List */}
         <div id="journal-entries" className="flex flex-col gap-4 max-w-4xl mx-auto">
-          {JOURNAL_ENTRIES.map((entry, idx) => (
-            <motion.div
-              key={entry.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="group flex flex-col sm:flex-row items-center gap-6 p-4 rounded-[32px] sm:rounded-full bg-surface/30 hover:bg-surface border border-stroke transition-all duration-300 cursor-pointer select-none"
-            >
-              {/* Image Circle */}
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 border border-stroke">
-                <img
-                  src={entry.image}
-                  alt={entry.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
+          {JOURNAL_ENTRIES.map((entry, idx) => {
+            const isExpanded = expandedId === entry.id;
 
-              {/* Main content body inside pill */}
-              <div className="flex-grow flex flex-col md:flex-row md:items-center justify-between gap-4 w-full px-2 sm:px-4">
-                
-                <div className="flex flex-col gap-1.5 text-center sm:text-left">
-                  {/* Category Stamp */}
-                  <div className="flex items-center gap-2 justify-center sm:justify-start">
-                    <span className="text-[9px] text-[#89AACC] font-mono uppercase tracking-widest px-2 py-0.5 rounded bg-white/5 border border-white/5">
-                      {entry.tags[0]}
-                    </span>
-                    <span className="text-[10px] text-muted font-mono">{entry.date}</span>
+            return (
+              <motion.div
+                key={entry.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                className={`rounded-[32px] border transition-all duration-500 select-none overflow-hidden ${
+                  isExpanded
+                    ? 'bg-surface border-[#89AACC]/40 shadow-[0_0_30px_-5px_rgba(137,170,204,0.2)]'
+                    : 'bg-surface/30 border-stroke hover:bg-surface'
+                }`}
+              >
+                {/* Clickable Pill Header */}
+                <div
+                  onClick={() => toggleEntry(entry.id)}
+                  className="group flex flex-col sm:flex-row items-center gap-6 p-4 cursor-pointer"
+                >
+                  {/* Image Circle */}
+                  <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 border transition-all duration-500 ${
+                    isExpanded ? 'border-[#89AACC] ring-2 ring-[#89AACC]/30' : 'border-stroke'
+                  }`}>
+                    <img
+                      src={entry.image}
+                      alt={entry.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base font-semibold text-text-primary group-hover:text-amber-100 transition-colors">
-                    {entry.title}
-                  </h3>
+                  {/* Main content body inside pill */}
+                  <div className="flex-grow flex flex-col md:flex-row md:items-center justify-between gap-4 w-full px-2 sm:px-4">
+                    
+                    <div className="flex flex-col gap-1.5 text-center sm:text-left">
+                      {/* Category Stamp */}
+                      <div className="flex items-center gap-2 justify-center sm:justify-start">
+                        <span className="text-[9px] text-[#89AACC] font-mono uppercase tracking-widest px-2 py-0.5 rounded bg-white/5 border border-white/5">
+                          {entry.tags[0]}
+                        </span>
+                        <span className="text-[10px] text-muted font-mono">{entry.date}</span>
+                      </div>
 
-                  {/* Excerpt */}
-                  <p className="text-xs text-muted max-w-[480px] line-clamp-1 sm:line-clamp-2 leading-relaxed">
-                    {entry.excerpt}
-                  </p>
+                      {/* Title */}
+                      <h3 className={`text-sm sm:text-base font-semibold transition-colors duration-300 ${
+                        isExpanded ? 'text-[#89AACC]' : 'text-text-primary group-hover:text-amber-100'
+                      }`}>
+                        {entry.title}
+                      </h3>
+
+                      {/* Excerpt */}
+                      <p className="text-xs text-muted max-w-[480px] line-clamp-1 sm:line-clamp-2 leading-relaxed">
+                        {entry.excerpt}
+                      </p>
+                    </div>
+
+                    {/* Right Metadata */}
+                    <div className="flex md:flex-col items-center md:items-end justify-between md:justify-center border-t border-stroke/30 pt-3 md:pt-0 md:border-none shrink-0 gap-1.5 font-mono select-none">
+                      <span className="text-[9px] text-[#4E85BF] font-semibold tracking-widest uppercase flex items-center gap-1">
+                        {entry.readTime && <><BookOpen size={10} /> {entry.readTime}</>}
+                      </span>
+                      
+                      {/* Rotating Arrow */}
+                      <span className={`hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${
+                        isExpanded
+                          ? 'bg-[#89AACC] text-bg rotate-180'
+                          : 'bg-stroke group-hover:bg-text-primary text-muted group-hover:text-bg'
+                      }`}>
+                        <ChevronDown size={14} />
+                      </span>
+                    </div>
+
+                  </div>
                 </div>
 
-                {/* Right Metadata */}
-                <div className="flex md:flex-col items-center md:items-end justify-between md:justify-center border-t border-stroke/30 pt-3 md:pt-0 md:border-none shrink-0 gap-1.5 font-mono select-none">
-                  <span className="text-[9px] text-[#4E85BF] font-semibold tracking-widest uppercase flex items-center gap-1">
-                    {entry.readTime && <><BookOpen size={10} /> {entry.readTime}</>}
-                  </span>
-                  
-                  {/* Custom Arrow on Hover */}
-                  <span className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-full bg-stroke group-hover:bg-text-primary text-muted group-hover:text-bg transition-all duration-300 transform group-hover:translate-x-1.5">
-                    <ArrowRight size={14} />
-                  </span>
-                </div>
+                {/* Expanded Media + Description */}
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-4 pb-6 pt-2 border-t border-[#89AACC]/20 mx-4">
+                        <div className="flex flex-col md:flex-row gap-6 items-start">
+                          {/* Media */}
+                          <div className="w-full md:w-1/2 rounded-2xl overflow-hidden border border-[#89AACC]/20 shadow-lg shadow-black/20">
+                            {entry.media.endsWith('.mp4') ? (
+                              <video
+                                src={entry.media}
+                                muted
+                                loop
+                                playsInline
+                                autoPlay
+                                className="w-full h-64 object-cover"
+                              />
+                            ) : (
+                              <img
+                                src={entry.media}
+                                alt={entry.title}
+                                referrerPolicy="no-referrer"
+                                className="w-full h-64 object-cover"
+                              />
+                            )}
+                          </div>
 
-              </div>
-            </motion.div>
-          ))}
+                          {/* Description */}
+                          <div className="w-full md:w-1/2 flex flex-col gap-4">
+                            <span className="text-[10px] text-[#89AACC] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full border border-[#89AACC]/20 bg-[#89AACC]/5 inline-block w-fit">
+                              Highlights
+                            </span>
+                            <p className="text-sm text-text-primary leading-relaxed">
+                              {entry.description}
+                            </p>
+                            <div className="flex flex-wrap gap-2 mt-2">
+                              {entry.tags.map((tag) => (
+                                <span key={tag} className="text-[10px] text-muted border border-stroke bg-bg/65 px-2.5 py-1 rounded-full">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Mobile View All button since layout calls for it */}
+        {/* Mobile View All button */}
         <div className="flex justify-center mt-10 md:hidden">
           <button
             id="journal-view-all-mobile"
@@ -145,7 +229,7 @@ export default function Journal() {
             className="group inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.15em] font-semibold border border-stroke bg-surface rounded-full py-3.5 px-6 w-full cursor-pointer"
           >
             <span>View all ideas</span>
-            <ArrowRight size={14} />
+            <BookOpen size={14} />
           </button>
         </div>
 

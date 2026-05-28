@@ -5,7 +5,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Dribbble, X, Maximize2, Sparkles } from 'lucide-react';
+import { Github, X, Maximize2, Sparkles } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { EXPLORATIONS } from '../data';
@@ -130,17 +130,17 @@ export default function Explorations() {
             A dynamic canvas of spatial experiments, creative coding shaders, and raw WebGL ideas from late-night logs.
           </p>
 
-          {/* Dribbble CTA Button */}
+          {/* GitHub CTA Button */}
           <a
-            href="https://dribbble.com"
+            href="https://github.com/Waards"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-2 text-[11px] uppercase tracking-wider font-semibold border border-stroke bg-surface px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105"
           >
             <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-[1px] accent-gradient -z-10" />
             <span className="absolute inset-0 rounded-full bg-surface group-hover:bg-bg transition-colors duration-300 -z-10" />
-            <Dribbble size={12} className="text-muted group-hover:text-text-primary transition-colors" />
-            <span className="text-muted group-hover:text-text-primary transition-colors">See more on Dribbble</span>
+            <Github size={12} className="text-muted group-hover:text-text-primary transition-colors" />
+            <span className="text-muted group-hover:text-text-primary transition-colors">See more on GitHub</span>
           </a>
         </div>
       </div>
@@ -246,22 +246,20 @@ export default function Explorations() {
                     {activeItem.title}
                   </h3>
                   <p className="text-xs text-muted leading-relaxed mb-6">
-                    A conceptual design exploring depth values, subtle contrast changes, and high-frequency layout codes. Crafted specifically for dark ambient view ports.
+                    {activeItem.description}
                   </p>
                 </div>
 
-                <div className="border-t border-stroke pt-4 flex flex-col gap-2">
-                  <div className="flex justify-between items-center text-[10px] font-mono select-none">
-                    <span className="text-muted">Aesthetic Code</span>
-                    <span className="text-text-primary uppercase">C-Slate #040404</span>
-                  </div>
-                  <div className="flex justify-between items-center text-[10px] font-mono select-none">
-                    <span className="text-muted">Type Format</span>
-                    <span className="text-text-primary">100% Vector Canvas</span>
-                  </div>
-                  <div className="flex justify-between items-center text-[10px] font-mono select-none">
-                    <span className="text-muted">Software Tools</span>
-                    <span className="text-text-primary">GLSL / Figma</span>
+                <div className="border-t border-stroke pt-4">
+                  <span className="text-[10px] uppercase font-mono tracking-widest text-muted mb-2 block">
+                    Tools & Technologies
+                  </span>
+                  <div className="flex flex-wrap gap-1.5 mt-2">
+                    {activeItem.tools.map((tool) => (
+                      <span key={tool} className="text-[9px] text-[#89AACC] bg-[#89AACC]/5 border border-[#89AACC]/20 px-2 py-0.5 rounded-full font-mono">
+                        {tool}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

@@ -58,83 +58,103 @@ export const JOURNAL_ENTRIES: JournalEntry[] = [
     title: 'Building CIANAN: Lessons from a Multi-Role System',
     excerpt: 'How I architected a stock management and HR system with role-based dashboards, session auth, and weighted attendance calculations.',
     date: 'May 18, 2026',
-    image: 'https://picsum.photos/seed/cianan_dev/300/300',
-    tags: ['Development', 'Architecture']
+    image: '/src/assets/images/1.gif',
+    tags: ['Development', 'Architecture'],
+    media: '/src/assets/images/1.gif',
+    description: 'Architected a full-stack multi-role web application featuring stock management, HR modules, role-based dashboards, session authentication, and weighted attendance calculations — all built with PHP/PDO and MySQL.'
   },
   {
     id: 'j-2',
     title: 'Automating Workflows with n8n and GoHighLevel',
     excerpt: 'A deep dive into building automated pipelines for lead nurturing, follow-ups, and CRM synchronization using no-code automation tools.',
     date: 'April 22, 2026',
-    image: 'https://picsum.photos/seed/automation_flow/300/300',
-    tags: ['Automation', 'CRM']
+    image: '/src/assets/images/1.jpg',
+    tags: ['Automation', 'CRM'],
+    media: '/src/assets/images/1.jpg',
+    description: 'Designed and deployed automated sales funnels, workflow automation pipelines, and CRM synchronization systems using GoHighLevel and n8n — streamlining lead nurturing and client follow-ups.'
   },
-    {
+  {
     id: 'j-3',
     title: 'Enterprise Dashboard Architecture: Patterns & Best Practices',
     excerpt: 'Designing scalable, maintainable dashboard systems with modular state management, role-based views, and real-time data pipelines.',
     date: 'Mar 11, 2026',
-    image: 'https://picsum.photos/seed/enterprise_dash/300/300',
-    tags: ['Architecture', 'Design Patterns']
+    image: '/src/assets/images/3.jpg',
+    tags: ['Architecture', 'Design Patterns'],
+    media: '/src/assets/images/ui.mp4',
+    description: 'Crafted responsive, fluid dashboard interfaces with GSAP timelines and Framer Motion spring animations — featuring modular state management, role-based views, and real-time data pipelines for scalable enterprise systems.'
   },
   {
     id: 'j-4',
     title: 'AI Integration Patterns: OpenRouter & Groq',
     excerpt: 'Comparing multi-model routing vs ultra-fast inference — and how I use both patterns to build intelligent application features.',
     date: 'Feb 05, 2026',
-    image: 'https://picsum.photos/seed/ai_patterns/300/300',
-    tags: ['AI', 'APIs']
+    image: '/src/assets/images/2.jpg',
+    tags: ['AI', 'APIs'],
+    media: '/src/assets/images/2.jpg',
+    description: 'Implemented multi-model AI routing via OpenRouter and ultra-fast inference with Groq, integrated with n8n workflow automation and REST APIs to build intelligent, responsive application features.'
   }
 ];
 
 export const EXPLORATIONS: ExplorationItem[] = [
   {
     id: 'exp-1',
-    title: 'Abstract Sculpture study',
-    category: 'Interactive WebGL',
-    image: 'https://picsum.photos/seed/sculpture_dark/400/400',
+    title: 'Full-Stack Web Development',
+    category: 'Multi-Role Systems',
+    image: '/src/assets/images/vp1.gif',
     aspectRatio: 'aspect-square',
-    rotation: '-rotate-2'
+    rotation: '-rotate-2',
+    description: 'Full-stack developer with hands-on experience in React, Vue, PHP/PDO, and MySQL — building multi-role systems like CIANAN with stock management, HR modules, and interactive UI widgets.',
+    tools: ['React', 'Vue', 'PHP/PDO', 'MySQL', 'Tailwind CSS']
   },
   {
     id: 'exp-2',
-    title: 'Neon Light Installation',
-    category: 'Projection Mapping',
-    image: 'https://picsum.photos/seed/neon_dark/400/400',
+    title: 'AI Integration & API Routing',
+    category: 'LLM Orchestration',
+    image: '/src/assets/images/vp2.gif',
     aspectRatio: 'aspect-square',
-    rotation: 'rotate-3'
+    rotation: 'rotate-3',
+    description: 'AI integration specialist working with OpenRouter multi-model routing and Groq ultra-fast inference — building intelligent features with REST APIs and n8n workflow automation.',
+    tools: ['OpenRouter', 'Groq', 'REST APIs', 'n8n']
   },
   {
     id: 'exp-3',
-    title: 'Brutalist Concrete Pillar',
-    category: '3D Scan Art',
-    image: 'https://picsum.photos/seed/structure_dark/400/400',
+    title: 'CRM & Marketing Automation',
+    category: 'Pipeline Engineering',
+    image: '/src/assets/images/vp3.jpg',
     aspectRatio: 'aspect-square',
-    rotation: 'hover:rotate-6 -rotate-1'
+    rotation: 'hover:rotate-6 -rotate-1',
+    description: 'GoHighLevel CRM specialist — designing sales funnels, workflow automations, lead nurturing pipelines, and calendar integrations to streamline client operations and boost conversions.',
+    tools: ['GoHighLevel', 'Funnels', 'n8n', 'CRM Pipelines']
   },
   {
     id: 'exp-4',
-    title: 'Prism Color Spectrum',
-    category: 'Raymarching Canvas',
-    image: 'https://picsum.photos/seed/prism_dark/400/400',
+    title: 'Interactive UI & Animation',
+    category: 'Creative Frontend',
+    image: '/src/assets/images/vp4.jpg',
     aspectRatio: 'aspect-square',
-    rotation: 'rotate-6'
+    rotation: 'rotate-6',
+    description: 'Creative UI developer crafting fluid interfaces with GSAP timelines, Framer Motion spring animations, 3D CSS effects, and interactive desk buddy widgets with WASD controls.',
+    tools: ['GSAP', 'Framer Motion', 'CSS 3D', 'Canvas']
   },
   {
     id: 'exp-5',
-    title: 'Shattered Obsidian Glass',
-    category: 'Simulated Physics',
-    image: 'https://picsum.photos/seed/glass_dark/400/400',
+    title: 'Workflow Automation',
+    category: 'Process Optimization',
+    image: '/src/assets/images/vp5.gif',
     aspectRatio: 'aspect-square',
-    rotation: '-rotate-6'
+    rotation: '-rotate-6',
+    description: 'Automation engineer building n8n workflows with 400+ integrations, custom REST APIs, and intelligent data processing — from lead nurturing to automated follow-ups and CRM sync.',
+    tools: ['n8n', 'REST APIs', 'Webhooks', 'GoHighLevel']
   },
   {
     id: 'exp-6',
-    title: 'Cosmic Slate Terrains',
-    category: 'Procedural Shader',
-    image: 'https://picsum.photos/seed/space_dark/400/400',
+    title: 'Full-Stack & AI Development',
+    category: 'Tech Fusion',
+    image: '/src/assets/images/vp6.gif',
     aspectRatio: 'aspect-square',
-    rotation: 'rotate-2'
+    rotation: 'rotate-2',
+    description: 'IT graduate from CvSU constantly expanding the tech stack — blending full-stack development, AI integration, interactive animations, and automation into every project.',
+    tools: ['React', 'PHP', 'MySQL', 'OpenRouter', 'Groq']
   }
 ];
 

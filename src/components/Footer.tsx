@@ -5,12 +5,13 @@
 
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Mail, ArrowUpRight, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, ArrowUpRight, Github, Linkedin, Twitter, TriangleAlert } from 'lucide-react';
 
 export default function Footer() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const marqueeRef = useRef<HTMLDivElement | null>(null);
   const [showEmailOptions, setShowEmailOptions] = useState(false);
+  const [show404, setShow404] = useState<string | null>(null);
 
   // Marquee GSAP Infinite horizontal scroll
   useEffect(() => {
@@ -142,26 +143,36 @@ export default function Footer() {
 
           {/* Social Icons list */}
           <div className="flex items-center gap-5">
-            <a
-              href="https://twitter.com/wardseverything"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200"
+            <button
+              onClick={() => setShow404('twitter')}
+              onMouseEnter={() => setShow404('twitter')}
+              onMouseLeave={() => setShow404(null)}
+              className="relative text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200 cursor-pointer"
               aria-label="Twitter Profile"
             >
               <Twitter size={15} />
-            </a>
-            <a
-              href="https://linkedin.com/in/wards"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200"
+              {show404 === 'twitter' && (
+                <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap flex items-center gap-1 text-[9px] font-mono font-bold text-red-400 bg-red-400/10 border border-red-400/30 px-2 py-0.5 rounded-full animate-pulse">
+                  <TriangleAlert size={10} /> 404
+                </span>
+              )}
+            </button>
+            <button
+              onClick={() => setShow404('linkedin')}
+              onMouseEnter={() => setShow404('linkedin')}
+              onMouseLeave={() => setShow404(null)}
+              className="relative text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200 cursor-pointer"
               aria-label="LinkedIn Profile"
             >
               <Linkedin size={15} />
-            </a>
+              {show404 === 'linkedin' && (
+                <span className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap flex items-center gap-1 text-[9px] font-mono font-bold text-red-400 bg-red-400/10 border border-red-400/30 px-2 py-0.5 rounded-full animate-pulse">
+                  <TriangleAlert size={10} /> 404
+                </span>
+              )}
+            </button>
             <a
-              href="https://github.com/Wards"
+              href="https://github.com/Waards"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-text-primary transition-colors hover:scale-110 duration-200"

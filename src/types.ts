@@ -23,6 +23,8 @@ export interface JournalEntry {
   readTime?: string;
   image: string;
   tags: string[];
+  media: string;
+  description: string;
 }
 
 export interface ExplorationItem {
@@ -32,6 +34,8 @@ export interface ExplorationItem {
   image: string;
   aspectRatio: string;
   rotation: string; // CSS rotation class like 'rotate-3' or '-rotate-2'
+  description: string;
+  tools: string[];
 }
 
 export interface StatItem {
