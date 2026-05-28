@@ -3,13 +3,14 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Mail, ArrowUpRight, Github, Linkedin, Twitter } from 'lucide-react';
 
 export default function Footer() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const marqueeRef = useRef<HTMLDivElement | null>(null);
+  const [showEmailOptions, setShowEmailOptions] = useState(false);
 
   // Marquee GSAP Infinite horizontal scroll
   useEffect(() => {
@@ -81,10 +82,10 @@ export default function Footer() {
             Let's create <span className="font-display italic font-medium tracking-wide text-[#89AACC]">something together</span>
           </h2>
 
-          {/* Mailto button with outline transition / glow */}
-          <div className="flex justify-center">
-            <a
-              href="mailto:Sjosafatvillegas@gmail.com"
+          {/* Mailto button with email/outlook selection */}
+          <div className="flex justify-center relative">
+            <button
+              onClick={() => setShowEmailOptions(!showEmailOptions)}
               className="group relative inline-flex items-center gap-3 text-sm md:text-base font-semibold text-text-primary bg-surface/80 border border-stroke rounded-full px-8 py-4 transition-all duration-300 hover:scale-[1.03] hover:border-transparent cursor-pointer"
             >
               {/* Highlight background on hover */}
@@ -95,7 +96,33 @@ export default function Footer() {
               <Mail size={16} className="text-[#89AACC] group-hover:scale-110 transition-transform duration-300" />
               <span>Sjosafatvillegas@gmail.com</span>
               <ArrowUpRight size={16} className="text-muted group-hover:text-text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-            </a>
+            </button>
+
+            {showEmailOptions && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setShowEmailOptions(false)} />
+                <div className="absolute bottom-full mb-3 z-50 bg-surface border border-stroke rounded-2xl overflow-hidden shadow-xl min-w-[220px]">
+                  <a
+                    href="mailto:Sjosafatvillegas@gmail.com"
+                    onClick={() => setShowEmailOptions(false)}
+                    className="flex items-center gap-3 px-5 py-3.5 text-sm text-text-primary hover:bg-white/5 transition-colors"
+                  >
+                    <Mail size={16} className="text-[#89AACC]" />
+                    <span>Open in Email Client</span>
+                  </a>
+                  <a
+                    href="https://outlook.live.com/mail/0/compose?to=Sjosafatvillegas@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setShowEmailOptions(false)}
+                    className="flex items-center gap-3 px-5 py-3.5 text-sm text-text-primary hover:bg-white/5 transition-colors border-t border-stroke/50"
+                  >
+                    <ArrowUpRight size={16} className="text-[#89AACC]" />
+                    <span>Open in Outlook Web</span>
+                  </a>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
